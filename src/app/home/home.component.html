@@ -1,0 +1,29 @@
+<div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="mb-3 w-50">
+      <input 
+        class="form-control form-control-lg text-center" 
+        type="text" 
+        placeholder="Company Name or Number" 
+        id="searchInput" 
+        [(ngModel)]="searchTerm"
+        required
+      />
+      <div class="warn text-center">
+        <p *ngIf="showErrorMessage" class="text-danger mt-2">
+            {{ invalidInputMessage }}
+        </p>
+      </div>
+      
+    </div>
+    <div class="mt-5">
+      <button 
+        type="button" 
+        class="btn btn-primary btn-lg" 
+        (click)="search()" 
+        [disabled]="!searchTerm"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+  

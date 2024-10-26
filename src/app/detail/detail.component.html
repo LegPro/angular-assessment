@@ -1,0 +1,10 @@
+<div class="container mt-4 p-3 border rounded bg-light">
+    <h5 style="font-weight: normal;">{{ company?.title }}</h5>
+    <p>Company number<strong> {{ company?.company_number }}</strong> </p>
+    <p>Registered office address <br><strong>{{ company?.address_snippet }}<br></strong></p>
+    <p>Company status<br><strong>{{ company?.company_status }}<br></strong></p>
+    <p>Company type<br><strong>{{ company?.company_type }}<br></strong></p>
+    <p>Incorporated on<br><strong>{{ company?.date_of_creation | date: 'd MMMM yyyy' }}<br></strong></p>
+    <a role="button" (click)="goToOfficers()" class="text-primary">List Officers</a>
+  </div>
+  

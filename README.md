@@ -1,27 +1,81 @@
-# AngularAssessment
+# Company Search Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+## Goal
+This application allows users to search for companies by name or company number and view detailed information about a selected company. Implemented using Angular 7 or above.
 
-## Development server
+## Features
+- **Search Functionality**: Users can search for a company by either its name or company number.
+- **Result Display**: Displays search results with the company name, number, and details.
+- **Company Details and Officers View**: Users can click on a company from the search results to view its details and list of officers (after authentication).
+- **Pagination**: Search results are paginated for easier navigation.
+- **Authentication**: Restricted access to the details and officer pages (mock authentication is used: Username : admin, Password: admin).
+- **Styling**: Styled with Bootstrap for a responsive, clean UI.
+- **Input Validation**: The search input is validated to ensure that only valid names or numbers are entered.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technology Stack
+- **Angular**: Version 18.
+- **CSS**: Used for additional styling.
+- **Bootstrap**: Used for responsive design and layout.
+- **NPM Components**: Additional components from NPM are used where necessary.
 
-## Code scaffolding
+## API Endpoints
+### Search for a Company
+- URL: `https://angular-exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1/Search?Query={search_term}`
+- Description: Retrieves a list of companies based on the search term.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Get Company Officers
+- URL: `https://angular-exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1/Officers?CompanyNumber={number}`
+- Description: Retrieves a list of officers for the specified company.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Application Flow
+1. **Search Page**: 
+   - The user enters a company name or number and clicks "Search."
+   - If the input is valid, a list of matching companies is displayed with pagination controls.
+  
+2. **Search Results Page**:
+   - The user sees the list of companies based on their search criteria.
+   - Clicking on a company name initiates an authentication check.
+   
+3. **Authentication**:
+   - If the user is not authenticated, a login modal is displayed for authentication.
+   - Once authenticated, the user can proceed to the company’s details page.
 
-## Running unit tests
+4. **Details Page**:
+   - Shows detailed information about the selected company, including name, number, status, incorporation date, and address.
+   - A link to view the list of officers is provided.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. **Officer Page**:
+   - Displays the list of officers for the selected company in a detailed format.
 
-## Running end-to-end tests
+## Getting Started
+### Prerequisites
+- Ensure you have [Node.js](https://nodejs.org/) and [Angular CLI](https://angular.io/cli) installed.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Further help
+### Running the Application
+1. Start the development server:
+   ```bash
+   ng serve
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. Open your browser and go to:
+   ```
+   http://localhost:4200
+   ```
+
+### Project Structure
+- **Home Page (Search)**: Allows users to search for companies by name or number with validation.
+- **Search Results**: Displays a list of results with pagination.
+- **Details Page**: Shows detailed information about the selected company (restricted access).
+- **Officer Page**: Lists the officers associated with the company (restricted access).
+
+## Optional Enhancements
+- **Styling**: Additional Bootstrap styling for form inputs and buttons.
+- **Paging Controls**: Pagination for search results, styled with Bootstrap.
+- **Mock Authentication**: Simple authentication is used to restrict access to sensitive pages (mock authentication is used: Username : admin, Password: admin).
